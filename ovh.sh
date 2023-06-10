@@ -39,6 +39,7 @@ do
 
    DELETENSSERVER=$(curl -X $HTTP_METHOD -H "Content-Type:application/json;charset=utf-8"  -H "X-Ovh-Application:$OVH_APP_KEY" -H "X-Ovh-Timestamp:$TIME" -H "X-Ovh-Signature:$SIG" -H "X-Ovh-Consumer:$OVH_CONSUMER_KEY"  $HTTP_QUERY)
    echo $DELETENSSERVER
+   sleep 5
 done
 
 # Update DNS
