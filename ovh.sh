@@ -37,7 +37,7 @@ do
    CLEAR_SIGN="$OVH_APP_SECRET+$OVH_CONSUMER_KEY+$HTTP_METHOD+$HTTP_QUERY+$HTTP_BODY+$TIME"
    SIG='$1$'$(echo -n $CLEAR_SIGN | openssl dgst -sha1 | sed -e 's/^.* //')
 
-   DELETENSSERVER=$(curl -X $HTTP_METHOD -H "Content-Type:application/json;charset=utf-8"  -H "X-Ovh-Application:$OVH_APP_KEY" -H "X-Ovh-Timestamp:$TIME" -H "X-Ovh-Signature:$SIG" -H "X-Ovh-C>
+   DELETENSSERVER=$(curl -X $HTTP_METHOD -H "Content-Type:application/json;charset=utf-8"  -H "X-Ovh-Application:$OVH_APP_KEY" -H "X-Ovh-Timestamp:$TIME" -H "X-Ovh-Signature:$SIG" -H "X-Ovh-Consumer:$OVH_CONSUMER_KEY"  $HTTP_QUERY)
    echo $DELETENSSERVER
 done
 
